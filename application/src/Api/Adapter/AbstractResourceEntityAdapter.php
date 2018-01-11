@@ -245,6 +245,7 @@ abstract class AbstractResourceEntityAdapter extends AbstractEntityAdapter
                     $positive = false;
                 case 'ex':
                     $predicateExpr = $qb->expr()->isNotNull("$valuesAlias.id");
+                    break;
                 case 'gt':
                     $param = $this->createNamedParameter($qb, $value);
                     $predicateExpr = $qb->expr()->orX(
