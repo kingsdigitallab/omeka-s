@@ -245,6 +245,21 @@ abstract class AbstractResourceEntityAdapter extends AbstractEntityAdapter
                     $positive = false;
                 case 'ex':
                     $predicateExpr = $qb->expr()->isNotNull("$valuesAlias.id");
+                    break;
+                case 'gt':
+                    $param = $this->createNamedParameter($qb, $value);
+                    $predicateExpr = $qb->expr()->orX(
+                        $qb->expr()->gt("$valuesAlias.value", $param),
+                        $qb->expr()->gt("$valuesAlias.uri", $param)
+                    );
+                    break;
+                case 'lt':
+                    $param = $this->createNamedParameter($qb, $value);
+                    $predicateExpr = $qb->expr()->orX(
+                        $qb->expr()->lt("$valuesAlias.value", $param),
+                        $qb->expr()->lt("$valuesAlias.uri", $param)
+                    );
+                    break;
                 default:
                     continue;
             }

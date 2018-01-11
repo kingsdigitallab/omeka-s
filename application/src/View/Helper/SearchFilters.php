@@ -37,6 +37,8 @@ class SearchFilters extends AbstractHelper
             'nres' => $translate('does not have resource'),
             'ex' => $translate('has any value'),
             'nex' => $translate('has no values'),
+            'gt' => $translate('greater than'),
+            'lt' => $translate('lower than'),
         ];
 
         foreach ($query as $key => $value) {
