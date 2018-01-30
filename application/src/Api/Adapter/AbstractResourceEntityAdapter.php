@@ -261,7 +261,7 @@ abstract class AbstractResourceEntityAdapter extends AbstractEntityAdapter
                     );
                     break;
                 default:
-                    continue;
+                    continue 2;
             }
 
             $joinConditions = [];
